@@ -1,5 +1,4 @@
-import express from "express";
-
+const express = require("express")
 const app = express();
 app.use(express.json())
 
@@ -11,6 +10,10 @@ app.get("/",(req,res)=>{
 
 const PORT = 3000;
 
-app.listen(PORT,()=>{
+try {
+  app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-})
+  });
+} catch (error) {
+  console.error("Failed to start server:", error);
+}
